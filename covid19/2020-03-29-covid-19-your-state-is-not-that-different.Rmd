@@ -35,7 +35,7 @@ This post is inspired by the following sources:
 * Kieran Healy's [replication](https://kieranhealy.org/blog/archives/2020/03/27/a-covid-small-multiple/) of John Burn-Murdoch's [small-multiple plot](https://www.ft.com/coronavirus-latest) of confirmed cases by country. The technique is useful to contrast a country's trajectory with other countries trajectories, putting things into perspective.
 * The [log-log plot](https://aatishb.com/covidtrends/) of cumulative cases against new cases, by [Aatish Bhatia](https://aatishb.com/) and [Minute Physics](https://www.youtube.com/watch?v=54XLXg4fYsc). The log-log scale and the stock vs (smoothed 7-day) flow help us to see the exponential path each country was on, and make it easier to spot when the growth has passed the exponential growth phase and started to slow down.
 
-I combine these two approaches to show that all 50 States and Washington DC in the United States saw exponential growth, and have not shown signs of slowing down.
+I combine these two approaches to show that all 50 States and Washington DC in the United States saw exponential growth in confirmed cases, and have not shown signs of slowing down.
 
 
 ```{r, layout="l-body-outset", cache=TRUE}
@@ -181,7 +181,7 @@ states_cumulative %>%
     facet_wrap(~ reorder(state, -count), ncol = 7) + 
     labs(x = "Number of Confirmed Case (log10 scale)",
          y = "Number of Mew Confirmed Cases in the Last 7 Days (log10 scale)",
-         title = "All US States' cases are growing exponentially, and no sign of slowing down",
+         title = "All States' confirmed cases are growing exponentially, and no sign of slowing down",
          # title = "Exponential Growth of COVID-19 Confirmed Cases by US State",
          subtitle = paste0("Data as of ", format(max(us_states$date), "%A, %B %e, %Y")),
          caption = "Paul Yiming Li @paulymli / Data: https://covidtracking.com") +
@@ -204,9 +204,9 @@ A few points to help with the interpretation of the graph, and a few caveats.
 * X axis is the cumulative number of confirmed cases in log10 scale, and the y axis is the new confirmed cases in the last 7 days in log10 scale.
 * Each day corresponds to a point on each of the graphs. Imaging a dot climbing up to the top right corner of each graph, with the large red dot representing the latest day, leaving a trace behind it.
 * The gray background lines of each small-multiple panel are the growth paths of all other states.
-* The 7-day period in the y axis is to smooth the daily fluctuations in new cases.
+* The 7-day period in the y axis is to smooth the daily fluctuations in new confirmed cases.
 * If the growth of confirmed cases are exponential, the slope of log(confirmed cases) vs log(total new cases in the last 7 days) is 45 degrees. Therefore the fact that every state is on the 45-degree line suggests every state is on an exponential growth path.
 * But the 45-degree line does not suggest all states share the same rate of growth, just that all states are on some exponential path.
 * This graph only considers confirmed/detected cases, not the actually infected cases, which are only larger than detected cases. Differential ramp-up speed of testing across states is not taken into account.
 
-See the [notebook](https://github.com/yimingli/data-code/blob/master/covid19/2020-03-29-covid-19-your-state-is-not-that-different.Rmd) for code and data.
+See the [notebook](https://github.com/yimingli/data-code/blob/master/covid19/2020-03-29-covid-19-your-state-is-not-that-different.Rmd) for code and data. Data is from https://covidtracking.com/
