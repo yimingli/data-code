@@ -1,0 +1,37 @@
+# R related
+## History files
+.Rhistory
+.Rapp.history
+
+## Data files
+*.RData
+*.rds
+*.rdb
+*.rdx
+
+## RStudio files
+*.Rproj
+.Rproj*
+
+## knitr and R markdown default cache directories
+**/*_cache/
+/cache/
+**/*_files/
+*.html
+
+# Bash
+nohup.out
+
+# latex related files
+*.synctex.gz
+*.fdb_latexmk
+*.bbl
+*.blg
+*.aux
+*.out
+
+# jupyter lab
+.ipynb_checkpoints
+
+# Misc files
+.DS_Store
